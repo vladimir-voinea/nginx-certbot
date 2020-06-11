@@ -8,7 +8,6 @@ else
     NEW_DOMAIN_NAME="$1"
 
     EXCLUDE_SELF=`basename "$0"`
-    EXCLUDE_README="README.md"
     SED_CMD='s/'${OLD_DOMAIN_NAME}'/'${NEW_DOMAIN_NAME}'/g'
     
     git ls-files | grep -v ${EXCLUDE_SELF} | xargs sed -i "${SED_CMD}"

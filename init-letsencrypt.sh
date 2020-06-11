@@ -5,7 +5,13 @@ if ! [ -x "$(command -v docker-compose)" ]; then
   exit 1
 fi
 
-domains=(example.org)
+if [ -z "$1" ] 
+    then
+        echo "No domain name supplied"
+        exit 1
+fi
+
+domains="$1"
 rsa_key_size=4096
 data_path="./data/certbot"
 email="" # Adding a valid address is strongly recommended
