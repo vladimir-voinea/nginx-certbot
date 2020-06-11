@@ -10,5 +10,5 @@ else
     EXCLUDE_SELF=`basename "$0"`
     SED_CMD='s/'${OLD_DOMAIN_NAME}'/'${NEW_DOMAIN_NAME}'/g'
     
-    git ls-files | grep -v ${EXCLUDE_SELF} | xargs sed -i "${SED_CMD}"
+    grep -rl ${OLD_DOMAIN_NAME} ./data | xargs sed -i "${SED_CMD}"
 fi
